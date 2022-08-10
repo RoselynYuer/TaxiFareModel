@@ -3,8 +3,12 @@ import os
 
 AWS_BUCKET_PATH = "s3://wagon-public-datasets/taxi-fare-train.csv"
 
+DIST_ARGS = dict(start_lat="pickup_latitude",
+                 start_lon="pickup_longitude",
+                 end_lat="dropoff_latitude",
+                 end_lon="dropoff_longitude")
 
-def get_data(nrows=10_000):
+def get_data(nrows=10_000, **kwargs):
     '''returns a DataFrame with nrows from s3 bucket'''
     # get train data as X,y because we get data from train.csv
     #df = pd.read_csv(AWS_BUCKET_PATH, nrows=nrows)

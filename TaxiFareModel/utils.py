@@ -1,6 +1,10 @@
 import numpy as np
 from TaxiFareModel.data import get_data, clean_data
 
+import time
+
+import numpy as np
+
 def haversine_vectorized(df,
                          start_lat="pickup_latitude",
                          start_lon="pickup_longitude",
@@ -25,11 +29,31 @@ def haversine_vectorized(df,
     c = 2 * np.arcsin(np.sqrt(a))
     return 6371 * c
 
+def minkowski_distance(df, p,
+                       start_lat="pickup_latitude",
+                       start_lon="pickup_longitude",
+                       end_lat="dropoff_latitude",
+                       end_lon="dropoff_longitude"):
+    x1 = df[start_lon]
+    x2 = df[end_lon]
+    y1 = df[start_lat]
+    y2 = df[end_lat]
+    return ((abs(x2 - x1) ** p) + (abs(y2 - y1)) ** p) ** (1 / p)
+
 
 def compute_rmse(y_pred, y_true):
     return np.sqrt(((y_pred - y_true) ** 2).mean())
 
+
+
+
+
+
+
+
+
 if __name__ == "__main__":
+    # test haversine_vectorized
     df = get_data()
     df_c=clean_data(df)
     distance=haversine_vectorized(df_c)

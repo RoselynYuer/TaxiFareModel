@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/roselyn/code/RoselynYuer/TaxiFareModel/mlruns/1/7ca5248d900e4cf0b0b549997831b243/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '1'
+lifecycle_stage: active
+name: ''
+run_id: 7ca5248d900e4cf0b0b549997831b243
+run_uuid: 7ca5248d900e4cf0b0b549997831b243
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1660032160015
+status: 1
+tags: []
+user_id: unknown
